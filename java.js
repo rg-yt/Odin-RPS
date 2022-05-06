@@ -25,6 +25,8 @@ function playRound(playerSelect,p2){
     
     p1= playerSelect.toLowerCase();
     p2= computerPlay().toLowerCase();
+    wins=0;
+    loss=0;
     console.log(p2);
     if(p1===p2){
         console.log("It's a tie!")
@@ -32,12 +34,14 @@ function playRound(playerSelect,p2){
     else if(p1==="rock" && p2 ==="scissors"||
     p1==="paper" && p2 ==="rock"||
     p1==="scissors" && p2 ==="paper"){
-        console.log("You win!")
+        console.log("You win the round!")
+        wins++;
     }
     else if(p2==="rock" && p1 ==="scissors"||
     p2==="paper" && p1 ==="rock"||
     p2==="scissors" && p1 ==="paper") {
-        console.log("You lose!")
+        console.log("You lose this round!")  
+        loss++;      
     }
     else if (p1 != "rock"||p1 != "paper"||p1 != "scissors"){
         console.log("Please enter Rock, Paper, or Scissors!")
@@ -45,12 +49,24 @@ function playRound(playerSelect,p2){
 }
 //create a function game to call the play round 
 //after 5 rounds determine overall winner
-// funciton game(playRound()){
+function playGame(){
     
-//     for (let i=0; i<5; i++){
-
-//     }
-// }
+    for (let i=0; i<5; i++){
+        playRound(prompt("Rock, Paper, or Scissors?",));
+        
+    }
+    if(wins>loss){
+        console.log("You win the match!")  
+    }
+    else if(wins<loss){
+        console.log("You lost the match") 
+    }
+    else {
+        console.log("It's a draw!")
+    }
+    wins=0;
+    loss=0;
+}
 
 
 
