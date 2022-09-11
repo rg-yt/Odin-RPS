@@ -1,1 +1,1 @@
-# Oding-RPS
+# Odin-RPS
