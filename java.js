@@ -4,24 +4,24 @@
 // compare computer and user choice
 // send result to user
 
-function getComputerChoice(choice){
+function getComputerChoice(){
     let x = Math.floor(Math.random()*3);
     if (x==0){
         return "ROCK";
     }else if (x==1){
-        return "PAPER";
+        return "PAPER";gi
     } else {
         return "SCISSORS";
     }
 }
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection = getComputerChoice()){
     playerSelection = playerSelection.toUpperCase();
-    computerSelection = getComputerChoice();
-    console.log(computerSelection);
     if (playerSelection == computerSelection){
         return "It's a Tie!"
-    }else if(playerSelection == "ROCK" && computerSelection == "SCISSORS"||playerSelection == "PAPER" && computerSelection== "ROCK"||playerSelection == "SCISSORS" && computerSelection == "PAPER"){
+    }else if(playerSelection == "ROCK" && computerSelection == "SCISSORS"||
+            playerSelection == "PAPER" && computerSelection== "ROCK"||
+            playerSelection == "SCISSORS" && computerSelection == "PAPER"){
         return "You Win!"
     } else {
         return "You Lost!"
