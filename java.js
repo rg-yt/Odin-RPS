@@ -51,10 +51,10 @@ function game() {
         resetScore();
         return `You won ${score} rounds. You won the game!`
     } else if (wins < loss) {
-        resetScore(score);
+        resetScore();
         return `You won ${score} rounds. You lost the game!`
     } else {
-        resetScore(score);
+        resetScore();
         return `It's a tie game! Try again!`
     }
 
