@@ -1,6 +1,5 @@
 let wins = 0;
 let loss = 0;
-let score;
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -25,53 +24,38 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection = getComputerChoice()) {
     playerSelection = this.innerText;
     if (playerSelection === computerSelection) {
+        updateScore();
         message.innerText = `You picked ${playerSelection}. Your opponent picked ${computerSelection}. It's a Tie!`;
     } else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
         playerSelection === "Paper" && computerSelection === "Rock" ||
         playerSelection === "Scissors" && computerSelection === "Paper") {
-        wins +=1;
-        plscore.innerText = `${wins}`;
+        wins += 1;
+        updateScore();
         message.innerText = `You picked ${playerSelection}. Your opponent picked ${computerSelection}. You Win!`;
     } else {
-        loss+=1;
-        cpuscore.innerText = `${loss}`;
+        loss += 1;
+        updateScore();
         message.innerText = `You picked ${playerSelection}. Your opponent picked ${computerSelection}. You Lost!`;
 
+    };
+    if (wins == 5 || loss == 5) {
+        gameover();
     }
-    if(wins == 5 || loss == 5){
-        resetScore;
-    }
-    
 }
 
-function resetScore() {
-    score = wins;
+function updateScore(){
+    cpuscore.innerText = `${loss}`;
+    plscore.innerText = `${wins}`;
+}
+
+function gameover() {
+    if (wins > loss) {
+        message.innerText = `The score was ${wins} to ${loss}. You won the game!`;
+    } else {
+        message.innerText = `The score was ${wins} to ${loss}. You lost the game!`;
+    };
     wins = 0;
     loss = 0;
 }
 
 
-
-
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         console.log(playRound());
-//     }
-//     if (wins > loss) {
-//         resetScore();
-//         return `You won ${score} rounds. You won the game!`
-//     } else if (wins < loss) {
-//         resetScore();
-//         return `You won ${score} rounds. You lost the game!`
-//     } else {
-//         resetScore();
-//         return `It's a tie game! Try again!`
-//     }
-
-// }
-
-// create a computer choice
-// make computer choice random
-// get a choice from user 
-// compare computer and user choice
-// send result to user
