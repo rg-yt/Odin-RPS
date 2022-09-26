@@ -43,7 +43,7 @@ function playRound(playerSelection, computerSelection = getComputerChoice()) {
     }
 }
 
-function updateScore(){
+function updateScore() {
     cpuscore.innerText = `${loss}`;
     plscore.innerText = `${wins}`;
 }
